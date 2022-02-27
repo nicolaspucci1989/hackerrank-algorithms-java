@@ -4,17 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HackerRankAlgorithms {
-  static public ArrayList<Integer> fizzBuzz(int n) {
-    ArrayList<Integer> result = new ArrayList<>();
-    int a = 0;
-    int b = 0;
-
-    result.add(a);
-    result.add(b);
-
-    return result;
-  }
-
   static public int diagonalDifference(List<List<Integer>> arr) {
     int acumulator = 0;
     int size = arr.size();
