@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static hackerrank.HackerRankAlgorithms.*;
+import static hackerrank.HackerRankAlgorithms.diagonalDifference;
+import static hackerrank.HackerRankAlgorithms.plusMinus;
 
 @DisplayName("Algorithms tests")
 public class AlgorithmsTest {
@@ -51,7 +52,7 @@ public class AlgorithmsTest {
     arr.add(-1);
     arr.add(-1);
 
-    List<Float> expected = Arrays.asList(2f/5, 2f/5, 1f/5);
+    List<Float> expected = Arrays.asList(2f / 5, 2f / 5, 1f / 5);
     List<Float> result = plusMinus(arr);
 
     Assert.assertEquals(expected.get(0), result.get(0));

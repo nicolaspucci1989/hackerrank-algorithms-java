@@ -46,9 +46,9 @@ public class HackerRankAlgorithms {
       }
     }
 
-    result.add(positiveAcum/size);
-    result.add(negativeAcum/size);
-    result.add(zeroAcum/size);
+    result.add(positiveAcum / size);
+    result.add(negativeAcum / size);
+    result.add(zeroAcum / size);
 
     return result;
   }
