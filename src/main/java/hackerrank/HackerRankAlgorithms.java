@@ -41,4 +41,23 @@ public class HackerRankAlgorithms {
 
     return result;
   }
+
+  static public void staircase(int num) {
+    String symbolA = " ";
+    String symbolB = "#";
+
+    for (int i = 0; i < num; i++) {
+      String str = "";
+
+      for (int j = i; j < num - 1; j++) {
+        str = str.concat(symbolA);
+      }
+
+      for (int y = 0; y < i + 1; y++) {
+        str = str.concat(symbolB);
+      }
+
+      System.out.println(str);
+    }
+  }
 }
