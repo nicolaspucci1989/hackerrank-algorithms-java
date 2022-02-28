@@ -1,5 +1,6 @@
 package algorithms;
 
+import hackerrank.HackerRankAlgorithms;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -58,5 +59,17 @@ public class AlgorithmsTest {
     Assert.assertEquals(expected.get(0), result.get(0));
     Assert.assertEquals(expected.get(1), result.get(1));
     Assert.assertEquals(expected.get(2), result.get(2));
+  }
+
+  @Test
+  @DisplayName("Min max")
+  public void minMaxSumTest() {
+    List<Integer> input = Arrays.asList(1, 3, 5, 6, 9);
+    List<Long> result = HackerRankAlgorithms.minMaxSum(input);
+
+    Long min = 1 + 3 + 5 + 6L;
+    Long max = 3 + 5 + 6 + 9L;
+    Assert.assertEquals(min, result.get(0));
+    Assert.assertEquals(max, result.get(1));
   }
 }

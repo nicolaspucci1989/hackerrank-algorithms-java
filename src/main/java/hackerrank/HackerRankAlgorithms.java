@@ -1,6 +1,8 @@
 package hackerrank;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class HackerRankAlgorithms {
@@ -59,5 +61,23 @@ public class HackerRankAlgorithms {
 
       System.out.println(str);
     }
+  }
+
+  static public List<Long> minMaxSum(List<Integer> arr) {
+    long max = 0;
+    long min = 0;
+    int limit = arr.size() - 1;
+
+    arr.sort(Collections.reverseOrder());
+    for (int i = 0; i < limit; i++) {
+      max += arr.get(i);
+    }
+
+    arr.sort(null);
+    for (int i = 0; i < limit; i++) {
+      min += arr.get(i);
+    }
+
+    return Arrays.asList(min, max);
   }
 }
