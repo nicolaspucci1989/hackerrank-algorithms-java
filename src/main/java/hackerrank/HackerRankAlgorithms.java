@@ -80,4 +80,26 @@ public class HackerRankAlgorithms {
 
     return Arrays.asList(min, max);
   }
+
+  static public boolean abc(String word, List<String> blocks) {
+    if (word.isEmpty()) {
+      return true;
+    }
+
+    char c = word.charAt(0); // grab the first character in the word
+    for (int i = 0; i < blocks.size(); i++) { // for each block in the blocks list
+      String b = blocks.get(i); // grab the first block
+
+      if (b.charAt(0) != c && b.charAt(1) != c) // if no characters in the block coincide, continue
+        continue;
+
+      Collections.swap(blocks, 0, i); // put found block at position 0
+      if (abc(word.substring(1), blocks.subList(1, blocks.size()))) // call abc without the found character and without the used block
+        return true;
+
+      Collections.swap(blocks, 0, i);
+    }
+
+    return false;
+  }
 }

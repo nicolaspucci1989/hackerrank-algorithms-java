@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static hackerrank.HackerRankAlgorithms.*;
 import static hackerrank.HackerRankAlgorithms.diagonalDifference;
 import static hackerrank.HackerRankAlgorithms.plusMinus;
 
@@ -65,11 +66,26 @@ public class AlgorithmsTest {
   @DisplayName("Min max")
   public void minMaxSumTest() {
     List<Integer> input = Arrays.asList(1, 3, 5, 6, 9);
-    List<Long> result = HackerRankAlgorithms.minMaxSum(input);
+    List<Long> result = minMaxSum(input);
 
     Long min = 1 + 3 + 5 + 6L;
     Long max = 3 + 5 + 6 + 9L;
     Assert.assertEquals(min, result.get(0));
     Assert.assertEquals(max, result.get(1));
+  }
+
+  @Test
+  @DisplayName("ABC blocks")
+  public void abcBlocksTest() {
+    List<String> blocks = Arrays.asList(
+        "BO", "XK", "DQ", "CP", "NA",
+        "GT", "RE", "TG", "QD", "FS",
+        "JW", "HU", "VI", "AN", "OB",
+        "ER", "FS", "LY", "PC", "ZM");
+
+    Assert.assertTrue(abc("TREAT", blocks));
+    Assert.assertTrue(abc("BARK", blocks));
+    Assert.assertFalse(abc("BOOK", blocks));
+    Assert.assertFalse(abc("COMMON", blocks));
   }
 }
