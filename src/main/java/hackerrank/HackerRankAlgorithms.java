@@ -1,9 +1,6 @@
 package hackerrank;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class HackerRankAlgorithms {
   static public int diagonalDifference(List<List<Integer>> arr) {
@@ -101,5 +98,60 @@ public class HackerRankAlgorithms {
     }
 
     return false;
+  }
+
+  static public int factorial(int number) {
+    int factorial = 1;
+    for (int i = 1; i <= number; i++) {
+      factorial = factorial * i;
+    }
+    return factorial;
+  }
+
+  static public boolean isPalindrome(String word) {
+    int start = 0;
+    int end = word.length() - 1;
+
+    while (start < end) {
+      if (word.charAt(start) != word.charAt(end)) {
+        return false;
+      }
+      start++;
+      end--;
+    }
+
+    return true;
+  }
+
+  static public boolean isPalindrome(int number) {
+    int copy = number;
+    int reversed = 0;
+    int remainder;
+
+    while (number != 0) {
+      remainder = number % 10;
+      reversed = reversed * 10 + remainder;
+      number /= 10;
+    }
+    return copy == reversed;
+  }
+
+  static public String toCamelCase(String s) {
+    StringBuilder result = new StringBuilder();
+
+    char c = s.charAt(0);
+    result.append(Character.toLowerCase(c));
+
+    for (int i = 1; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (Character.isUpperCase(ch)) {
+        result.append("_");
+        result.append(Character.toLowerCase(ch));
+      } else {
+        result.append(ch);
+      }
+    }
+
+    return result.toString().toLowerCase(Locale.ROOT);
   }
 }
