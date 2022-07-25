@@ -154,4 +154,41 @@ public class HackerRankAlgorithms {
 
     return result.toString().toLowerCase(Locale.ROOT);
   }
+
+  static public void phoneBookMap() {
+    Map<String, Integer> phoneBook = new HashMap<>();
+    List<String> names = new ArrayList<>();
+
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    for(int i = 0; i < n; i++){
+      String name = in.next();
+      int phone = in.nextInt();
+      phoneBook.put(name, phone);
+    }
+    while(in.hasNext()){
+      String s = in.next();
+      names.add(s);
+    }
+    in.close();
+
+    names.forEach(name -> {
+      Integer phone = phoneBook.get(name);
+      if (phone != null) {
+        System.out.printf("%s=%d\n", name, phoneBook.get(name));
+      } else {
+        System.out.println("Not found");
+      }
+    });
+  }
+
+  static public int recursiveFactorial(int n) {
+      if(n > 1) {
+        return n * recursiveFactorial(n - 1);
+      }
+      // Base Case n = 1
+      else {
+        return n;
+      }
+  }
 }
