@@ -161,12 +161,12 @@ public class HackerRankAlgorithms {
 
     Scanner in = new Scanner(System.in);
     int n = in.nextInt();
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
       String name = in.next();
       int phone = in.nextInt();
       phoneBook.put(name, phone);
     }
-    while(in.hasNext()){
+    while (in.hasNext()) {
       String s = in.next();
       names.add(s);
     }
@@ -183,12 +183,51 @@ public class HackerRankAlgorithms {
   }
 
   static public int recursiveFactorial(int n) {
-      if(n > 1) {
-        return n * recursiveFactorial(n - 1);
-      }
-      // Base Case n = 1
-      else {
-        return n;
-      }
+    if (n > 1) {
+      return n * recursiveFactorial(n - 1);
+    }
+    // Base Case n = 1
+    else {
+      return n;
+    }
+  }
+
+  static public boolean areAnagrams(String s1, String s2) {
+    if (s1.length() != s2.length()) {
+      return false;
+    }
+
+    Map<Character, Integer> freq1 = new HashMap<>();
+    Map<Character, Integer> freq2 = new HashMap<>();
+
+    for (int i = 0; i < s1.length(); i++) {
+      char c = s1.charAt(i);
+      freq1.compute(c, (key, val) -> (val == null) ? 1 : val + 1);
+    }
+
+    for (int i = 0; i < s1.length(); i++) {
+      char c = s2.charAt(i);
+      freq2.compute(c, (key, val) -> (val == null) ? 1 : val + 1);
+    }
+
+    for (Map.Entry<Character, Integer> entry : freq1.entrySet()) {
+      Character key = entry.getKey();
+      if (!freq2.containsKey(key) || !Objects.equals(freq1.get(key), freq2.get(key)))
+        return false;
+    }
+
+    return true;
+  }
+
+  static public boolean areAnagramsSortingStrings(String s1, String s2) {
+    char[] s1Chars = s1.toCharArray();
+    Arrays.sort(s1Chars);
+    String s1Sorted = new String(s1Chars);
+
+    char[] s2Chars = s2.toCharArray();
+    Arrays.sort(s2Chars);
+    String s2Sorted = new String(s2Chars);
+
+    return s1Sorted.equals(s2Sorted);
   }
 }

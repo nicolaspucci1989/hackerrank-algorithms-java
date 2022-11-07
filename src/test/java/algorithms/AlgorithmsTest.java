@@ -88,4 +88,23 @@ public class AlgorithmsTest {
     Assert.assertFalse(abc("BOOK", blocks));
     Assert.assertFalse(abc("COMMON", blocks));
   }
+
+  @Test
+  @DisplayName("Tow strings are anagrams if contains the same letters and frequency ")
+  public void yesAnagram() {
+    String s1 = "below";
+    String s2 = "elbow";
+
+    Assert.assertTrue(areAnagrams(s1, s2));
+    Assert.assertTrue(areAnagramsSortingStrings(s1, s2));
+  }
+  @Test
+  @DisplayName("Tow strings are not anagrams if they don't contain the same letters and frequency ")
+  public void notAnagram() {
+    String s1 = "beloww";
+    String s2 = "elbow";
+
+    Assert.assertFalse(areAnagrams(s1, s2));
+    Assert.assertFalse(areAnagramsSortingStrings(s1, s2));
+  }
 }
