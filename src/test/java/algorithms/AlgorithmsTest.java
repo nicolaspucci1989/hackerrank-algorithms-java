@@ -1,6 +1,5 @@
 package algorithms;
 
-import hackerrank.HackerRankAlgorithms;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static hackerrank.FirstAndLastPosition.firstAndLastPositionBinary;
+import static hackerrank.FirstAndLastPosition.firstAndLastPositionLinear;
 import static hackerrank.HackerRankAlgorithms.*;
 import static hackerrank.HackerRankAlgorithms.diagonalDifference;
 import static hackerrank.HackerRankAlgorithms.plusMinus;
@@ -106,5 +107,25 @@ public class AlgorithmsTest {
 
     Assert.assertFalse(areAnagrams(s1, s2));
     Assert.assertFalse(areAnagramsSortingStrings(s1, s2));
+  }
+
+  @Test
+  @DisplayName("Use linear find first and last occurrence of target in array")
+  public void firstAndLastReturnsPositions() {
+    int[] arr = new int[]{2,4,5,5,5,5,5,7,9,9};
+    int target = 5;
+    int[] result = firstAndLastPositionLinear(arr, target);
+    Assert.assertEquals(2, result[0]);
+    Assert.assertEquals(6, result[1]);
+  }
+
+  @Test
+  @DisplayName("Use binary find first and last occurrence of target in array")
+  public void binaryFindFirstAndLast() {
+    int[] arr = new int[]{2,4,5,5,5,5,5,7,9,9};
+    int target = 5;
+    int[] result = firstAndLastPositionBinary(arr, target);
+    Assert.assertEquals(2, result[0]);
+    Assert.assertEquals(6, result[1]);
   }
 }
